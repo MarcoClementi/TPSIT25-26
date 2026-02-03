@@ -6,12 +6,75 @@ var oggettoJSON = { "nome": "Biblioteca", "anno": 2026, "autore": "Marco Clement
     document.write("<h1>Biblioteca</h1>");
     document.write("<description>Gestione libri in JSON</description>");
 </script>
+<style>
+/* SFONDO elegante */
+body {
+    background: linear-gradient(45deg, lightblue, lightgreen, lightpink, lightyellow);
+    background-size: 400% 400%;
+    animation: sfondoElegante 10s infinite;
+    font-family: Arial, sans-serif;
+  
+}
+h1 {
+    color: white;
+    background-color: darkblue;
+    border: 4px solid white;
+    text-align: center;
+    text-shadow: 2px 2px 0 black;
+}
+form {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 15px;
+    border: 2px solid gray;
+    border-radius: 10px;
+    width: 350px;
+    margin: auto;
+}
+input, select {
+    display: block;
+    margin: 10px 0;
+    width: 300px;
+    font-size: 16px;
+    padding: 5px;
+    border: 2px solid gray;
+    border-radius: 5px;
+}
+input[type="submit"] {
+    background: linear-gradient(blue, lightblue);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+}
+a {
+    color: darkblue;
+    text-decoration: none;
+}
+@keyframes sfondoElegante {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+@keyframes pulsanteAnimato {
+    0% {transform: scale(1);}
+    50% {transform: scale(1.1);}
+    100% {transform: scale(1);}
+
+}
+</style>
 </head>
     <body>
     <h1 style="background-color:rgb(255, 30, 30);">Biblioteca</h1>
-    <form class="form" id="form1" method="post" action="processa_dati.php">
-    <input name="nome" type="text" value="Inserisci il nome del libro">
-    <input name="autore" type="text" value="Inserisci l'autore del libro">
+    <form class="form" id="form1" method="post" onsubmit="salva_dati()">
+<script language="JavaScript"> 
+        var form = document.getElementById('form1');
+        var formData = new FormData(form);
+</script>
+
+    <input name="nome" type="text" placeholder="Inserisci il nome del libro">
+    <input name="autore" type="text" placeholder="Inserisci l'autore del libro">
     <select name="genere" id="genere" style="width:150px;">
         <option value="Fantasy">Fantasy</option>
         <option value="Horror">Horror</option>
@@ -23,10 +86,6 @@ var oggettoJSON = { "nome": "Biblioteca", "anno": 2026, "autore": "Marco Clement
 </form>
     </body>
     <script language="JavaScript">
-    document.write("<footer>Anno: " + oggettoJSON.anno + " - Autore: " + oggettoJSON.autore + "</footer>"); // Inserisce il footer con anno e autore
-    </script>
-    <body>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">  <!--Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">  <!--Bootstrap Icons -->
-</body>
+ document.write("<footer>Anno: " + oggettoJSON.anno + " - Autore: " + oggettoJSON.autore + "</footer>"); // Inserisce il footer con anno e autore
+</script>
 </html>
