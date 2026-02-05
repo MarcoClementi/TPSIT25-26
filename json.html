@@ -6,6 +6,7 @@
 var oggettoJSON = { "nome": "Biblioteca", "anno": 2026, "autore": "Marco Clementi" };
     document.write("<description>Gestione libri in JSON</description>");
 </script>
+
 <style>
 /* SFONDO elegante */
 body {
@@ -65,14 +66,62 @@ a {
 }
 </style>
 </head>
-    <body>
-    <h1 style="background-color:rgb(0, 16, 241);">Biblioteca</h1>
-    <form class="form" id="form1" method="post" onsubmit="salva_dati()">
-<script language="JavaScript"> 
-        var form = document.getElementById('form1');
-        var formData = new FormData(form);
+
+<form id="form1" onsubmit="salva_dati(event)"> 
+<script>
+var libri = []; // array globale lista ordinata
+
+function salva_dati(event) { 
+    event.preventDefault(); // previene il comportamento predefinito del form
+
+    var nome = document.querySelector('input[name="nome"]').value.trim(); // prendo i valori dai campi del form
+    var autore = document.querySelector('input[name="autore"]').value.trim(); // rimuovo spazi bianchi
+    var genere = document.querySelector('select[name="genere"]').value; // prendo il valore selezionato
+
+    // Oggetto libro
+    var libro = {
+        nome: nome,
+        autore: autore,
+        genere: genere
+    };
+
+    // Controllo se il libro esiste già
+    var trovato = false;
+
+    for (var i = 0; i < libri.length; i++) {
+        if (libri[i].nome === nome && libri[i].autore === autore) {
+            // MODIFICA libro esistente
+            libri[i].genere = genere;
+            trovato = true;
+            break;
+        }
+    }
+
+    // Se non esiste, lo aggiungo
+    if (!trovato) {
+        libri.push(libro);
+    }
+
+    // Creo file JSON aggiornato
+    var json = JSON.stringify(libri, null, 4);
+    var blob = new Blob([json], { type: "application/json" });
+    var url = URL.createObjectURL(blob);
+
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = "libri.json";
+    a.click();
+
+    URL.revokeObjectURL(url);
+
+    alert(trovato ? "Libro modificato ✏️" : "Libro aggiunto 📚");
+    document.getElementById("form1").reset();
+}
 </script>
 
+    <body>
+    <h1 style="background-color:rgb(0, 16, 241);">Biblioteca</h1>
+    <form id="form1" onsubmit="salva_dati(event)">
     <input name="nome" type="text" placeholder="Inserisci il nome del libro">
     <input name="autore" type="text" placeholder="Inserisci l'autore del libro">
     <select name="genere" id="genere" style="width:150px;">
@@ -80,6 +129,7 @@ a {
         <option value="Horror">Horror</option>
         <option value="Romantico">Romantico</option>
         <option value="Storico">Storico</option>
+        <option value="Giallo">Giallo</option>
     <input name="invia" type="submit" value="Invia" style="width: 150px;" style="background-color:rgb(255, 0, 0);">
     </select>
     <a href="https://classroom.google.com/c/ODA2Mjk2NzA0MTIx/a/ODQwMDg5NTgwNjc2/details">Visita classroom</a>
