@@ -1,0 +1,48 @@
+[
+{
+    "candidati" : [
+    {   
+        "nome" : "Mario",
+        "cognome" : "Rossi",
+            "partito" : {
+                "nome" : "lega",
+                "coalizione" : "centro"
+                },
+                    "capogruppo" : {
+                        "nome" : "Giorgia Meloni",
+                        "dataNascita" : "15/01/1977",
+                        "anni_militanza" : 20.5
+                    },
+        "logo" : "https://www.leganord.org/wp-content/uploads/2019/03/logo-lega.png"
+        }
+    ],
+    "voti" :  43467,
+    "eletto" : true
+},
+{
+    "candidati" : [
+    {   
+        "nome" : "Luigi",
+        "cognome" : "Bianchi",
+            "partito" : {
+                "nome" : "pd",
+                "coalizione" : "centro-sinistra"
+                },
+                    "capogruppo" : {
+                        "nome" : "Enrico Letta",
+                        "dataNascita" : "20/07/1966",
+                        "anni_militanza" : 25
+                    },
+        "logo" : "https://www.partitodemocratico.it/wp-content/uploads/2020/09/logo-pd.png"
+        }
+    ],
+    "voti" :  38912,
+    "eletto" : false
+},
+
+{
+  "_comment": "Questa è una nota per gli sviluppatori",
+  "//": "Questo campo è un commento e non sarà elaborato dal parser",
+  "data": "valore"
+}
+]
