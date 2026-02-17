@@ -1,0 +1,74 @@
+{
+  "competizione": [
+    {
+      "nome": "Serie A",
+      "data_inizio": "2024-08-01",
+      "data_fine": "2025-05-31",
+      "impianto_sportivo": "Stadio Olimpico",
+      "quota_iscrizione": 1000000,
+      "gare": [
+        {
+          "disciplina": "Nuoto",
+          "data": "2024-08-15",
+          "orario_inizio": "2024-08-15T20:00:00",
+          "durata_gara": "02:30",
+          "categoria": "Junior",
+          "descrizione_regolamento": "Gara di nuoto per la categoria Junior",
+          "atleti": [
+            {
+              "nome": "Mario",
+              "cognome": "Rossi",
+              "data_nascita": "2005-05-20",
+              "nazionalita": "Italia",
+              "disciplina": "Nuoto"
+            }
+          ],
+          "risultati_finali": "2-1",
+          "posizione_finale": "1"
+        }
+      ],
+      "strutture": [
+            {
+              "nome": "PalaMich",
+              "tipologie": "Spogliatoio",
+              "posizione": "Centrale",
+              "orari": "15:30"
+            }
+          ],
+      "giudice_di_gara": [
+        {
+          "nome": "Alessandro",
+          "cognome": "Cervesi",
+          "qualifica": "Arbitro",
+          "anni_esperienza": 2
+        }
+      ]
+    },
+    {
+      "nome": "Coppa Italia",
+      "data_inizio": "2024-09-01",
+      "data_fine": "2025-06-30",
+      "impianto_sportivo": "Stadio San Siro",
+      "quota_iscrizione": 1500000,
+      "gare": [
+        {
+          "disciplina": "Calcio",
+          "data": "2024-09-15",
+          "orario_inizio": "2024-09-15T20:00:00",
+          "durata_gara": "02:00",
+          "categoria": "Senior",
+          "descrizione_regolamento": "Gara di calcio per la categoria Senior",
+          "squadre": [
+            {
+              "nome": "Juventus",
+              "citta": "Torino",
+              "allenatore": "Massimiliano Allegri"
+            }
+          ],
+          "risultati_finali": "3-2",
+          "posizione_finale": "1"
+        }
+      ]
+    }
+  ]
+}
