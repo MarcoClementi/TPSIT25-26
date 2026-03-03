@@ -36,11 +36,12 @@ class ServerTCP:
 
             print(f"Connessione ricevuta da {client_address}")
 
-            # Riceviamo i dati dal client (max 1024 byte)
+            # Riceviamo i dati dal client (max 1024 byte)           
             data = client_socket.recv(1024).decode()
-
-            print(f"Messaggio ricevuto: {data}")
-
+            while len(data) > 0:
+                print(f"Messaggio ricevuto: {data}")
+                data = client_socket.recv(1024).decode()
+                
             # Inviamo una risposta al client
             response = "Messaggio ricevuto correttamente!"
             client_socket.send(response.encode())
