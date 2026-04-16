@@ -1,0 +1,30 @@
+<!-- 2 Dato il seguente documento HTML:
+<html>
+<body>
+inizio documento
+54 <br/><div>zona di visualizzazione di sourcel.htm</div><br/>
+55 <br/><div>zona di visualizzazione di source2.htm</div><br/>
+56 <br/><div>zona di visualizzazione di source3.htm</div><br/>
+57 fine documento
+58 </body>
+59 </html>
+modificalo in modo da poter selezionare, tramite un menu a 3 opzioni, il caricamento asincrono dei 4 docu-menti HTML source1.htm,
+source2.htm, source3.htm, che vanno visualizzati rispettivamente all'interno del primo, del secondo e del terzo elemento <div>. -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Caricamento Asincrono con Menu</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        select { padding: 8px; font-size: 16px; margin-bottom: 15px; }
+        div[id^="div"] {
+            border: 1px solid #ccc;
+            padding: 10px;
+            min-height: 80px;
+            margin: 10px 0;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+</html>

@@ -1,0 +1,84 @@
+<!-- 2 Dato il seguente documento HTML:
+<html>
+<body>
+inizio documento
+54 <br/><div>zona di visualizzazione di sourcel.htm</div><br/>
+55 <br/><div>zona di visualizzazione di source2.htm</div><br/>
+56 <br/><div>zona di visualizzazione di source3.htm</div><br/>
+57 fine documento
+58 </body>
+59 </html>
+modificalo in modo da poter selezionare, tramite un menu a 3 opzioni, il caricamento asincrono dei 4 docu-menti HTML source1.htm,
+source2.htm, source3.htm, che vanno visualizzati rispettivamente all'interno del primo, del secondo e del terzo elemento <div>. -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Caricamento Asincrono con Menu</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        select { padding: 8px; font-size: 16px; margin-bottom: 15px; }
+        div[id^="div"] {
+            border: 1px solid #ccc;
+            padding: 10px;
+            min-height: 80px;
+            margin: 10px 0;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h2>Caricamento Asincrono dei contenuti</h2>
+    
+    <!-- Menu a 3 opzioni -->
+    <label for="menu">Seleziona azione:</label>
+    <select id="menu" onchange="caricaContenuti()">
+        <option value="">-- Seleziona --</option>
+        <option value="tutti">1. Carica tutti e 3 i documenti</option>
+        <option value="solo1">2. Carica solo <source1 class="html"></source1></option>
+        <option value="solo2">3. Carica solo <source2 class="html"></source2></option>
+    </select>
+
+    <hr>
+    <p><strong>inizio documento</strong></p>
+
+    <br/>
+    <div id="div1">zona di visualizzazione di <source1 class="html"></source1></div><br/>
+    <div id="div2">zona di visualizzazione di <source2 class="html"></source2></div><br/>
+    <div id="div3">zona di visualizzazione di <source3 class="html"></source3></div><br/>
+
+    <p><strong>fine documento</strong></p>
+
+    <script>
+        async function caricaContenuti() {
+            const scelta = document.getElementById('menu').value;
+            
+            // Reset dei div (opzionale)
+            if (scelta === "") return;
+
+            try {
+                if (scelta === "tutti" || scelta === "solo1") {
+                    const res1 = await fetch('source1.html');
+                    const text1 = await res1.text();
+                    document.getElementById('div1').innerHTML = text1;
+                }
+
+                if (scelta === "tutti" || scelta === "solo2") {
+                    const res2 = await fetch('source2.html');
+                    const text2 = await res2.text();
+                    document.getElementById('div2').innerHTML = text2;
+                }
+
+                if (scelta === "tutti" || scelta === "solo3") {
+                    const res3 = await fetch('source3.html');
+                    const text3 = await res3.text();
+                    document.getElementById('div3').innerHTML = text3;
+                }
+            } catch (error) {
+                console.error('Errore nel caricamento:', error);
+                alert('Errore nel caricamento di uno o più file. Verifica che i file source1.htm, source2.htm e source3.htm esistano nella stessa cartella.');
+            }
+        }
+    </script>
+</body>
+</html>
